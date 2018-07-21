@@ -111,6 +111,7 @@ var budgetController = (function () {
 
     },
 
+<<<<<<< HEAD
     calculatePercentages: function () {
       data.allItems.exp.forEach(function (cur) {
         cur.calcPercentage(data.totals.inc);
@@ -125,6 +126,8 @@ var budgetController = (function () {
       return allPerc;
     },
 
+=======
+>>>>>>> 0aeaaffc457e85b2046a267a616392563842ac2d
     getBudget: function () {
       return {
         budget: data.budget,
@@ -154,9 +157,14 @@ var UIController = (function () {
     budgetLabel: '.budget__value',
     incomeLabel: '.budget__income--value',
     expensesLabel: '.budget__expenses--value',
+<<<<<<< HEAD
     percentageLabel: '.budget__expenses--percentage',
     container: '.container',
     expensesPercLabel: '.item__percentage'
+=======
+    persentageLabel: '.budget__expenses--percentage',
+    container: '.container'
+>>>>>>> 0aeaaffc457e85b2046a267a616392563842ac2d
   }
 
   return {
@@ -271,6 +279,7 @@ var controller = (function (budgetCtrl, UICtrl) {
 
     document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
 
+<<<<<<< HEAD
   };
 
   var updateBudget = function () {
@@ -298,6 +307,21 @@ var controller = (function (budgetCtrl, UICtrl) {
     //3. update the UI with the new persantages
     //console.log(percentages);
     UICtrl.displayPercentages(percentages);
+=======
+  };
+
+  var updateBudget = function () {
+
+    // 1. Calculate the budget
+    budgetCtrl.calculateBudget();
+
+    // 2. return the budget
+    var budget = budgetCtrl.getBudget();
+
+    // 3. Display the budget on the UI
+    //console.log(budget);
+    UICtrl.displayBudget(budget);
+>>>>>>> 0aeaaffc457e85b2046a267a616392563842ac2d
 
   };
 
@@ -315,6 +339,7 @@ var controller = (function (budgetCtrl, UICtrl) {
     if (input.description !== '' && !isNaN(input.value) && input.value > 0) {
       // 2. Add the item to the BUDGET CONTROLLER
       newItem = budgetController.addItem(input.type, input.description, input.value);
+<<<<<<< HEAD
 
       // 3. Add the item to the UI
       UIController.addListItem(newItem, input.type);
@@ -332,6 +357,21 @@ var controller = (function (budgetCtrl, UICtrl) {
 
 
 
+=======
+
+      // 3. Add the item to the UI
+      UIController.addListItem(newItem, input.type);
+
+      // 4. clear the fields
+      UIController.clearFields();
+
+      // 5. calculat and update budget
+      updateBudget();
+    }
+
+
+
+>>>>>>> 0aeaaffc457e85b2046a267a616392563842ac2d
 
   };
 
@@ -359,9 +399,12 @@ var controller = (function (budgetCtrl, UICtrl) {
       // 3. update and show the new budget
       updateBudget();
 
+<<<<<<< HEAD
       // 4. calculate and update percentages
       updatePercentages();
 
+=======
+>>>>>>> 0aeaaffc457e85b2046a267a616392563842ac2d
     }
 
   };
